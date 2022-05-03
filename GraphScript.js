@@ -11,17 +11,19 @@ const cordões = ["Cordão1","Cordão2"]
 const perfumes = ["Perfume1", "Perfume2"]
 
 // Sales data by month
-const Camisa1 = [450, 500, 400, 450]
-const Camisa2 = [400, 200, 100, 500]
-const Calça1 = [100, 250, 300, 450]
-const Calça2 = [100, 400, 100, 234]
-const Calça3 = [621, 250, 567, 400]
-const Brinco1 = [100, 100, 300, 100]
-const Brinco2 = [210, 200, 200, 500]
-const Cordão1 = [100, 400, 150, 450]
-const Cordão2 = [200, 200, 650, 400]
-const Perfume1 = [100, 400, 500, 100]
-const Perfume2 = [550, 200, 150, 300]
+const data = {
+"Camisa1": [450, 500, 400, 450],
+"Camisa2": [400, 200, 100, 500],
+"Calça1": [100, 250, 300, 450],
+"Calça2": [100, 400, 100, 234],
+"Calça3": [621, 250, 567, 400],
+"Brinco1": [100, 100, 300, 100],
+"Brinco2": [210, 200, 200, 500],
+"Cordão1": [100, 400, 150, 450],
+"Cordão2": [200, 200, 650, 400],
+"Perfume1": [100, 400, 500, 100],
+"Perfume2": [550, 200, 150, 300]
+}
 
 Highcharts.chart('Graph', {
     xAxis: {
@@ -90,7 +92,7 @@ function updateBrand(){
           }
     }
     else if (produto == "Calças"){
-        for (var item of camisas) {
+        for (var item of calças) {
             updater += "<option>" + item + "</option>"
           }
     }
@@ -111,7 +113,17 @@ function updateBrand(){
     }
 
     document.getElementById("Marca").innerHTML = updater;
+
+    //After updating the selected brand it's necessary to update the graph
+    updateGraph();
 }
+
+
+function updateGraph(){
+    // The data comes from the number of sales for a specific brand
+    document.getElementById("Marca").value;
+}
+
 
 // Event listeners for selection change
 document.getElementById("Categoria").addEventListener("input",updateProduct);
