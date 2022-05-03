@@ -2,41 +2,55 @@
 
 <html lang="pt">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Sales Report</title>
-  <meta name="description" content="A simple technical exercise to construct graphs in javascript.">
-  <meta name="author" content="Ericpso">
+    <title>Sales Report</title>
+    <meta name="description" content="A simple technical exercise to construct graphs in javascript.">
+    <meta name="author" content="Ericpso">
 
-  <meta property="og:title" content="Sales Report">
-  <meta property="og:type" content="website">
-  <meta property="og:description" content="A simple technical exercise to construct graphs in javascript.">
+    <meta property="og:title" content="Sales Report">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="A simple technical exercise to construct graphs in javascript.">
+    <style>
+            #container {
+                display: flex;
+                margin-left: 15%;
+                margin-right:15%;
+                justify-content: space-between;
+            }
+    </style>
 </head>
 
 <body>
-    <select name="Categoria">
-        <option  value="Roupa">Roupa</option>
-        <option value="Joias">Joias</option>
-        <option value="Cosméticos">Cosméticos</option>
-    </select>
-    <select name="Produto">
-        <option value="Camisa">Camisa</option>
-        <option value="Calça">Calça</option>
-        <option value="Perfume">Perfume</option>
-    </select>
-    <select name="Produto">
-        <option value="Camisa1">Camisa1</option>
-        <option value="Camisa2">Camisa2</option>
-        <option value="Calça1">Calça1</option>
-        <option value="Calça2">Calça2</option>
-        <option value="Perfume1">Perfume1</option>
-        <option value="Perfume2">Perfume2</option>
-        <option value="Perfume3">Perfume3</option>
+    <div id="container">
+        <div>Categoria:
+        <select id="Categoria">
+            <option value="Roupas">Roupa</option>
+            <option value="Joias">Joias</option>
+            <option value="Cosméticos">Cosméticos</option>
+        </select>
+        </div>
+
+        <div>Produto:
+        <select id="Produto">
+            <option value="Camisas">Camisa</option>
+            <option value="Calças">Calça</option>
+        </select>
+        </div>
+
+        <div>Marca:
+        <select id="Marca">
+            <option  value="Camisa1">Camisa1</option>
+            <option value="Camisa2">Camisa2</option>
+            <option value="Calça1">Calça1</option>
+            <option value="Calça2">Calça2</option>
+        </div>
+    </div>
     </select>
 
     <!-- Add graph here -->
 
-  <script src="GraphScript.js"></script>
+    <script src="GraphScript.js"></script>
 </body>
 </html>

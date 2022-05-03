@@ -22,3 +22,63 @@ const Cordão1 = [100, 400, 150, 450]
 const Cordão2 = [200, 200, 650, 400]
 const Perfume1 = [100, 400, 500, 100]
 const Perfume2 = [550, 200, 150, 300]
+
+function updateProduct(){
+    var categoria = document.getElementById("Categoria").value;
+    var updater = "";
+    if (categoria == "Roupas"){
+        for (var item of roupas) {
+            updater += "<option>" + item + "</option>"
+          }
+    }
+    else if (categoria == "Joias"){
+        for (var item of joias) {
+            updater += "<option>" + item + "</option>"
+          }
+    }
+    else if (categoria == "Cosméticos"){
+        for (var item of cosméticos) {
+            updater += "<option>" + item + "</option>"
+          }
+    }
+    document.getElementById("Produto").innerHTML = updater;
+
+    // After updating the product, the brand dropdown must be updated
+    updateBrand();
+}
+
+function updateBrand(){
+    var produto = document.getElementById("Produto").value;
+    var updater = "";
+    if (produto == "Camisas"){
+        for (var item of camisas) {
+            updater += "<option>" + item + "</option>"
+          }
+    }
+    else if (produto == "Calças"){
+        for (var item of camisas) {
+            updater += "<option>" + item + "</option>"
+          }
+    }
+    else if (produto == "Brincos"){
+        for (var item of brincos) {
+            updater += "<option>" + item + "</option>"
+          }
+    }
+    else if (produto == "Cordões"){
+        for (var item of cordões) {
+            updater += "<option>" + item + "</option>"
+          }
+    }
+    else if (produto == "Perfume"){
+        for (var item of perfumes) {
+            updater += "<option>" + item + "</option>"
+          }
+    }
+
+    document.getElementById("Marca").innerHTML = updater;
+}
+
+// Event listeners for selection change
+document.getElementById("Categoria").addEventListener("input",updateProduct);
+document.getElementById("Produto").addEventListener("input",updateBrand);
