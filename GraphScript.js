@@ -23,6 +23,40 @@ const Cordão2 = [200, 200, 650, 400]
 const Perfume1 = [100, 400, 500, 100]
 const Perfume2 = [550, 200, 150, 300]
 
+Highcharts.chart('Graph', {
+    xAxis: {
+      type: 'category'
+    },
+    title: {
+        text: 'Sales by Month for:'
+    },
+    xAxis: {
+        categories: [
+            'January',
+            'February',
+            'March',
+            'April'
+        ]
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Ventas'
+        }
+    },
+    series: [{
+      type: 'column',
+      name: 'Ventas',
+      data: [
+        ['January', 35],
+        ['February', 45],
+        ['March', 29],
+        ['April', 29]
+      ],
+      keys: ['name', 'y']
+    }],
+  });
+
 function updateProduct(){
     var categoria = document.getElementById("Categoria").value;
     var updater = "";
