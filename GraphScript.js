@@ -25,7 +25,14 @@ const data = {
 "Perfume2": [550, 200, 150, 300]
 }
 
-Highcharts.chart('Graph', {
+const calendar = [
+    'January',
+    'February',
+    'March',
+    'April'
+]
+
+var chart =Highcharts.chart('Graph', {
     xAxis: {
       type: 'category'
     },
@@ -78,12 +85,9 @@ function updateProduct(){
           }
     }
     document.getElementById("Produto").innerHTML = updater;
-
-    // After updating the product, the brand dropdown must be updated
-    updateBrand();
 }
 
-function updateBrand(){
+function updateBrand(data){
     var produto = document.getElementById("Produto").value;
     var updater = "";
     if (produto == "Camisas"){
@@ -113,18 +117,28 @@ function updateBrand(){
     }
 
     document.getElementById("Marca").innerHTML = updater;
-
-    //After updating the selected brand it's necessary to update the graph
-    updateGraph();
 }
 
-
-function updateGraph(){
+function updateGraph(calendar, data){
     // The data comes from the number of sales for a specific brand
-    document.getElementById("Marca").value;
+    var brand = document.getElementById("Marca").value;
+
+    var updater = [] 
+    for (var i = 0 ; i<calendar.length ;i++){
+        updater[i]=[calendar[i],data[brand][i]]
+    }
+    console.log(updater)
+    //update values in chart
+    for (var sales in data[brand]){
+        chart.series[0].setData(updater);
+    }
+
+    // Redraw chart
+    chart.redraw();
 }
 
 
 // Event listeners for selection change
-document.getElementById("Categoria").addEventListener("input",updateProduct);
-document.getElementById("Produto").addEventListener("input",updateBrand);
+document.getElementById("Categoria").addEventListener("input",function(){updateProduct();updateBrand();updateGraph(calendar,data)});
+document.getElementById("Produto").addEventListener("input",function(){updateBrand();updateGraph(calendar,data)});
+document.getElementById("Marca").addEventListener("input",function(){updateGraph(calendar,data)});
